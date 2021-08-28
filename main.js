@@ -32,12 +32,14 @@ var sayHello = function(str) {
 }
 sayHello('');
 
-// Array操作
-var array = ['nori', 'yukka', 'shishi'];
-//array.splice(0, 1);
-console.log(array);
-var newArray = array.slice(0, 1);
-console.log(newArray);
+// Array
+function arrayNum() {
+  var array = new Array();
+  array[20] = "test";
+  console.log("要素の数：" + array.length);
+  console.log("20番目の要素：" + array[19]);
+}
+arrayNum();
 
 // DOM確認
 window.onload = function() {
