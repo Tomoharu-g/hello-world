@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>drag & drop</title>
+  <script>
+  function dragHandler(event) {
+    // 表示用オブジェクト
+    var pEle = document.getElementById("disp");
+
+    // dragするオブジェクトをセット
+    event.dataTransfer.setData("text", "COIN");
+
+    // 動作結果を表示
+    pEle.innerHTML = "dragged!";
+  }
+
+  function dropHandler(event) {
+    // 表示用オブジェクト
+    var pEle = document.getElementById("disp");
+
+    id = event.dataTransfer.getData('text');
+
+    // 動作結果を表示
+    pEle.innerHTML = id + " dropped!";
+
+    // イベントをキャンセル
+    event.preventDefault();
+  }
+  </script>
+</head>
+<body>
+  <div id = "from" draggable="true" ondragstart="dragHandler(event);">
+    <p>【COIN】</p>
+  </div>
+  <p></p>
+  <div id="to" ondragover="event.preventDefault();" ondrop="dropHandler(event);">
+    <p>【BOX】</p>
+  </div>
+  <p id="disp">status</p>
+</body>
+</html>
